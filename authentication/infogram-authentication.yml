@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.infogram.com/
+docs: https://api.infogram.com/
+summary:
+  types:
+  - http
+  http_schemes:
+  - bearer
+  api_key_in: []
+  oauth2_flows: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    API requests authenticate with a personal API token created in the user's
+    Infogram account settings, passed as an "Authorization: Bearer <token>"
+    header on every request. Tokens inherit the permissions of the account that
+    generated them.
+  location: header
+  header: Authorization
+  format: Bearer <token>
+  token_source: Infogram account settings
+  sources:
+  - https://api.infogram.com/
+notes: >-
+  No OAuth2/OpenID Connect flows are documented for the current API — access is
+  personal bearer tokens only, so no OAuth scopes artifact applies. The legacy
+  infogr.am API used an API key + shared-secret HMAC signature model; the client
+  libraries in packages/ target that legacy scheme.
