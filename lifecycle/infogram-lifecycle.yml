@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.infogram.com/
+versioning:
+  scheme: none
+  current: null
+  docs: https://api.infogram.com/
+  note: Endpoints are unversioned (no version path segment or version header).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No published deprecation policy or RFC 8594 Sunset/Deprecation header
+    support was found. The legacy infogr.am API (targeted by the php/java/node/
+    ruby client libraries) predates the current api.infogram.com surface.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://infogram.statuspage.io/
+status_page_api: https://infogram.statuspage.io/api/v2/status.json
+deprecated_operations: []

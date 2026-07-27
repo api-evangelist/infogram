@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.infogram.com/
+format: json
+envelope:
+  rest: JSON body with an HTTP status code.
+  sse: 'event: error with data payload {"status": <httpStatus>}'
+notes: >-
+  Infogram does not publish an RFC 9457 problem+json catalog. The API
+  documentation explicitly describes the Server-Sent Events error frame and one
+  concrete status (403 when a task is requested with an incorrect id); the other
+  entries below are the standard HTTP semantics implied by a bearer-token REST
+  API and its documented request validation. Titles/remediation are derived, not
+  quoted from a published error reference.
+problems:
+- status: 403
+  title: Forbidden
+  documented: true
+  condition: >-
+    Returned (including over the SSE task stream) when requesting a task with an
+    incorrect/unknown task id, or when the bearer token lacks permission for the
+    project.
+  remediation: >-
+    Verify the taskId returned by the initiating operation and confirm the token
+    belongs to an account with access to the target project/team.
+- status: 401
+  title: Unauthorized
+  documented: false
+  condition: Missing or invalid Authorization bearer token.
+  remediation: >-
+    Create an API token in account settings and send it as an
+    "Authorization: Bearer <token>" header.
+- status: 400
+  title: Bad Request
+  documented: false
+  condition: Missing required parameters (e.g. projectId, entities, format) or malformed JSON body.
+  remediation: Supply all required parameters for the operation with valid values.
+- status: 404
+  title: Not Found
+  documented: false
+  condition: Referenced project or asset does not exist.
+  remediation: Confirm the projectId via getProjectList before operating on it.

@@ -1,0 +1,49 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/infogram
+packages:
+- language: javascript
+  registry: npm
+  name: infogram
+  url: https://www.npmjs.com/package/infogram
+  install: npm install infogram
+  repository: https://github.com/infogram/infogram-node
+  version: 0.3.1
+  official: true
+- language: ruby
+  registry: rubygems
+  name: infogram
+  url: https://rubygems.org/gems/infogram
+  install: gem install infogram
+  repository: https://github.com/infogram/infogram-ruby
+  version: 1.0.1
+  official: true
+- language: php
+  registry: packagist
+  name: infogram/infogram
+  url: https://packagist.org/packages/infogram/infogram
+  install: composer require infogram/infogram
+  repository: https://github.com/infogram/infogram-php
+  official: true
+- language: java
+  registry: github
+  name: infogram-java
+  url: https://github.com/infogram/infogram-java
+  repository: https://github.com/infogram/infogram-java
+  install: build from source (github.com/infogram/infogram-java)
+  official: true
+- language: python
+  registry: pypi
+  name: infogram
+  url: https://pypi.org/project/infogram/
+  install: pip install infogram
+  repository: https://github.com/gdmachado/infogram-python
+  version: 0.1.1
+  official: false
+  note: >-
+    Third-party/community library ("Unofficial Python library for infogr.am
+    API"), not maintained by the Infogram GitHub organization.
+notes: >-
+  The four official client libraries (php/java/node/ruby) were published for the
+  legacy infogr.am REST API. The current API surface documented at
+  api.infogram.com uses bearer-token authentication.

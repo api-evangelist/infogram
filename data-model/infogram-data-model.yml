@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.infogram.com/
+note: >-
+  Entity graph derived from the documented api.infogram.com surface (no OpenAPI
+  spec is published). Entities and relationships reflect the endpoints and their
+  parameters, not a machine-readable schema.
+entities:
+- name: Project
+  description: An Infogram design (infographic, chart, map, report, or dashboard).
+  key: projectId
+  operations:
+  - getProjectList
+  - copyProject
+  - getProjectData
+  - updateProjectEntities
+  - publishProject
+  - unpublishProject
+  - deleteProject
+  - downloadProject
+  - exportAsHTML
+- name: Entity
+  description: An updatable element within a project (text block, chart, or image).
+  operations:
+  - getProjectData
+  - updateProjectEntities
+- name: Asset
+  description: An uploaded image (max 10MB) usable inside a project.
+  operations:
+  - uploadAsset
+- name: Team
+  description: A workspace that owns projects; scopes list/copy operations.
+  key: teamId
+  operations:
+  - getProjectList
+  - copyProject
+- name: Task
+  description: A long-running export/download job monitored over Server-Sent Events.
+  key: taskId
+  operations:
+  - downloadProject
+  - exportAsHTML
+  - getTaskStatus
+relationships:
+- from: Team
+  to: Project
+  type: has_many
+  via: teamId
+- from: Project
+  to: Entity
+  type: has_many
+  via: projectId
+- from: Project
+  to: Asset
+  type: has_many
+  via: projectId
+- from: Project
+  to: Task
+  type: has_many
+  via: projectId
+- from: Task
+  to: Project
+  type: belongs_to
+  via: projectId

@@ -1,0 +1,41 @@
+# Infogram
+
+> Infogram is a data visualization platform (Riga, Latvia; part of the Prezi family) for turning raw data into interactive infographics, charts, maps, reports, and dashboards that can be embedded or shared. The REST API at api.infogram.com uses bearer-token authentication to manage projects: list, copy, read/update entities, upload assets, publish/unpublish, delete, and export to image/PDF or zipped HTML, with long-running exports tracked over Server-Sent Events.
+
+## APIs
+- [Infogram API](https://api.infogram.com/): REST API for managing Infogram projects (baseURL https://api.infogram.com, bearer-token auth).
+
+## Operations
+- getProjectList — retrieve user/team projects
+- copyProject — duplicate a project
+- getProjectData — fetch updatable entities (text, charts, images)
+- updateProjectEntities — modify project entities
+- uploadAsset — upload an image asset (max 10MB)
+- publishProject / unpublishProject — control public web access
+- deleteProject — permanently delete a project
+- downloadProject — export as PNG/JPG/PDF (async)
+- exportAsHTML — export as zipped HTML (async)
+- getTaskStatus — monitor a long-running task via Server-Sent Events
+
+## SDKs
+- [infogram-node (npm)](https://www.npmjs.com/package/infogram)
+- [infogram (RubyGems)](https://rubygems.org/gems/infogram)
+- [infogram/infogram (Packagist/PHP)](https://packagist.org/packages/infogram/infogram)
+- [infogram-java (GitHub)](https://github.com/infogram/infogram-java)
+
+## Docs
+- [API documentation](https://api.infogram.com/)
+- [Help center](https://support.infogram.com/hc/en-us)
+- [Blog](https://infogram.com/blog/)
+- [Pricing](https://infogram.com/pricing)
+- [Status page](https://infogram.statuspage.io/)
+- [GitHub organization](https://github.com/infogram)
+
+## Repo artifacts
+- [Authentication](authentication/infogram-authentication.yml)
+- [Conventions](conventions/infogram-conventions.yml)
+- [Error catalog](errors/infogram-problem-types.yml)
+- [Lifecycle](lifecycle/infogram-lifecycle.yml)
+- [Packages / SDKs](packages/infogram-packages.yml)
+- [MCP candidate server](mcp/infogram-mcp.yml)
+- [Data model](data-model/infogram-data-model.yml)

@@ -1,0 +1,78 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: https://api.infogram.com/
+server:
+  name: infogram
+  transport: http
+  url: null
+note: >-
+  No official hosted/remote Infogram MCP server was found. The tools below are a
+  candidate surface derived one-to-one from the documented REST endpoints at
+  api.infogram.com; long-running exports resolve over the getTaskStatus SSE
+  stream. Names/parameters reflect the published docs, not an OpenAPI spec.
+tools:
+- name: list_projects
+  description: Retrieve the projects for the authenticated user or a team.
+  source_operation: getProjectList
+  parameters:
+  - teamId (optional)
+- name: copy_project
+  description: Duplicate an existing project, optionally into a target team.
+  source_operation: copyProject
+  parameters:
+  - projectId (required)
+  - title
+  - targetTeamId
+- name: get_project_data
+  description: Fetch the updatable entities (text, charts, images) of a project.
+  source_operation: getProjectData
+  parameters:
+  - projectId (required)
+- name: update_project_entities
+  description: Modify a project's text, chart, and image entities.
+  source_operation: updateProjectEntities
+  parameters:
+  - projectId (required)
+  - entities (required)
+- name: upload_asset
+  description: Upload an image asset (max 10MB) for use in a project.
+  source_operation: uploadAsset
+  parameters:
+  - file (required, binary)
+- name: publish_project
+  description: Make a project web-accessible with a privacy setting.
+  source_operation: publishProject
+  parameters:
+  - projectId (required)
+  - privacy (required)
+  - password
+- name: unpublish_project
+  description: Remove a project's public web access.
+  source_operation: unpublishProject
+  parameters:
+  - projectId (required)
+- name: delete_project
+  description: Permanently delete a project.
+  source_operation: deleteProject
+  parameters:
+  - projectId (required)
+- name: download_project
+  description: Export a project as PNG/JPG/PDF (async task).
+  source_operation: downloadProject
+  parameters:
+  - projectId (required)
+  - format (required)
+  - scale
+  - transparentBackground
+- name: export_as_html
+  description: Export a project as zipped HTML (async task).
+  source_operation: exportAsHTML
+  parameters:
+  - projectId (required)
+- name: get_task_status
+  description: Monitor a long-running export/download task over Server-Sent Events.
+  source_operation: getTaskStatus
+  parameters:
+  - taskId
+  - type

@@ -1,8 +1,30 @@
 aid: infogram
 name: Infogram
-description: Infogram is a company surfaced as a portfolio company of point-nine and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Infogram is a data visualization platform (based in Riga, Latvia, part of the
+  Prezi family) that lets writers, marketers, journalists, researchers, and
+  analysts turn raw data into interactive infographics, charts, maps, reports,
+  and dashboards that can be embedded or shared anywhere. Its REST API at
+  api.infogram.com uses bearer-token authentication and lets developers list and
+  copy projects, read and update project entities (text, charts, images), upload
+  image assets, publish and unpublish projects, delete projects, and export a
+  project as PNG/JPG/PDF or zipped HTML. Long-running export/download tasks are
+  monitored over Server-Sent Events via a task-status stream. First-party client
+  libraries are published for PHP, Java, Node.js, and Ruby.
 url: https://raw.githubusercontent.com/api-evangelist/infogram/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.jifo.co/js/dist/f248da3747f83ee2a1a6a8768140ce82.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,10 +33,44 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Data Visualization
+- Infographics
+- Charts
+- Dashboards
+- Reporting
+- Business Intelligence
+- Content
+- Embeds
+apis:
+- name: Infogram API
+  description: >-
+    REST API for managing Infogram projects programmatically — list and copy
+    projects, read and update project entities, upload image assets, publish and
+    unpublish, delete, and export projects as image/PDF or zipped HTML. Uses
+    bearer-token authentication; long-running export tasks are tracked over
+    Server-Sent Events.
+  humanURL: https://api.infogram.com/
+  baseURL: https://api.infogram.com
+  tags:
+  - Data Visualization
+  - Infographics
+  - Reporting
+  properties:
+  - type: Authentication
+    url: authentication/infogram-authentication.yml
+  - type: Conventions
+    url: conventions/infogram-conventions.yml
+  - type: Idempotency
+    url: conventions/infogram-conventions.yml
+  - type: ErrorCatalog
+    url: errors/infogram-problem-types.yml
+  - type: MCPServer
+    url: mcp/infogram-mcp.yml
+  - type: DataModel
+    url: data-model/infogram-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +79,56 @@ maintainers:
 common:
 - type: Website
   url: https://infogram.com
+- type: DeveloperPortal
+  url: https://api.infogram.com/
+- type: Documentation
+  url: https://api.infogram.com/
+- type: APIReference
+  url: https://api.infogram.com/
+- type: Support
+  url: https://support.infogram.com/hc/en-us
+- type: Blog
+  url: https://infogram.com/blog/
+- type: Pricing
+  url: https://infogram.com/pricing
+- type: SignUp
+  url: https://infogram.com/signup
+- type: Login
+  url: https://infogram.com/login
+- type: TermsOfService
+  url: https://infogram.com/terms
+- type: PrivacyPolicy
+  url: https://infogram.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/infogram
+- type: StatusPage
+  url: https://infogram.statuspage.io/
+- type: Packages
+  url: packages/infogram-packages.yml
+- type: SDKs
+  url: packages/infogram-packages.yml
+- type: Authentication
+  url: authentication/infogram-authentication.yml
+- type: Conventions
+  url: conventions/infogram-conventions.yml
+- type: Idempotency
+  url: conventions/infogram-conventions.yml
+- type: ErrorCatalog
+  url: errors/infogram-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/infogram-lifecycle.yml
+- type: MCPServer
+  url: mcp/infogram-mcp.yml
+- type: LLMsTxt
+  url: llms/infogram-llms.txt
+- type: WellKnown
+  url: well-known/infogram-well-known.yml
+- type: DomainSecurity
+  url: security/infogram-domain-security.yml
+- type: DataModel
+  url: data-model/infogram-data-model.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

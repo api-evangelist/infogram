@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.infogram.com/
+docs: https://api.infogram.com/
+authentication:
+  style: bearer-token
+  header: Authorization
+  format: Bearer <token>
+  ref: authentication/infogram-authentication.yml
+content_types:
+  request:
+  - application/json
+  - multipart/form-data
+  response:
+  - application/json
+  - text/event-stream
+request_methods:
+  get: Query parameters in the URL; JSON response.
+  post: JSON object (or multipart/form-data for asset upload) in the body; JSON response.
+  sse: >-
+    Long-running export/download operations return a taskId and type; progress
+    is streamed from getTaskStatus as Server-Sent Events (event: message /
+    event: error) until completion.
+async_tasks:
+  model: server-sent-events
+  initiator_operations:
+  - downloadProject
+  - exportAsHTML
+  status_stream: getTaskStatus
+  status_fields:
+  - taskId
+  - type
+  - status
+idempotency:
+  supported: true
+  mechanism: >-
+    Project mutations are addressed by an explicit projectId, and the primary
+    write flows (copyProject, publishProject, unpublishProject, deleteProject,
+    updateProjectEntities) are naturally idempotent by resource identity rather
+    than via a dedicated idempotency-key header — re-issuing a request for the
+    same projectId converges on the same state. No Idempotency-Key header is
+    documented.
+  header: null
+pagination:
+  documented: false
+  note: >-
+    getProjectList returns the projects for a user or team; no cursor/offset
+    pagination parameters are documented.
+versioning:
+  scheme: none
+  note: >-
+    Endpoints are unversioned (e.g. https://api.infogram.com/copyProject with no
+    version segment or version header).
+error_envelope:
+  format: json
+  sse_error: 'event: error with data: {"status": <httpStatus>}'
+  ref: errors/infogram-problem-types.yml
+rate_limiting:
+  documented: false
+  note: >-
+    No official rate limit is published. The Node.js walkthrough example
+    throttles the client to 10 requests per 10 seconds
+    (axios-rate-limit maxRequests: 10, perMilliseconds: 10000), suggesting a
+    practical ceiling but not a documented contract.
