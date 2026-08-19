@@ -6,11 +6,9 @@ server:
   name: infogram
   transport: http
   url: null
-note: >-
-  No official hosted/remote Infogram MCP server was found. The tools below are a
-  candidate surface derived one-to-one from the documented REST endpoints at
-  api.infogram.com; long-running exports resolve over the getTaskStatus SSE
-  stream. Names/parameters reflect the published docs, not an OpenAPI spec.
+note: No official hosted/remote Infogram MCP server was found. The tools below are a candidate surface
+  derived one-to-one from the documented REST endpoints at api.infogram.com; long-running exports resolve
+  over the getTaskStatus SSE stream. Names/parameters reflect the published docs, not an OpenAPI spec.
 tools:
 - name: list_projects
   description: Retrieve the projects for the authenticated user or a team.
@@ -76,3 +74,9 @@ tools:
   parameters:
   - taskId
   - type
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census
