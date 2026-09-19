@@ -55,6 +55,16 @@ tags:
 - Reporting
 - Business Intelligence
 - Content
+- Embed
+tags_raw:
+- Company
+- Data Visualization
+- Infographics
+- Charts
+- Dashboards
+- Reporting
+- Business Intelligence
+- Content
 - Embeds
 apis:
 - name: Infogram API
